@@ -1,0 +1,22 @@
+<div id="home">
+  <div id="league">
+  	<div id="bl"></div>
+    <div id="entry_header">
+      <div id="entry_position">#</div>
+      <div id="entry_name"><center>Player</center></div>
+      <div id="entry_rating">Rating</div>
+    </div>
+    <div id="br"></div>
+	<% count = 1 %>
+	<% @users.each do |user| %>
+	    <%= render :partial => "entry", :locals => {:position => count, :name => user.pool_name, :rating => user.rating } %>
+	  <% count += 1 %>
+	<% end %>
+  </div>
+  <div id="notifications">
+  	<div id="bln"></div><div id="notification_header">News</div><div id="brn"></div>
+  	<% @notifications.each do |notification| %>
+	    <%= render :partial => "notification", :locals => {:notification => notification } %>
+	<% end %>
+  </div>
+</div>

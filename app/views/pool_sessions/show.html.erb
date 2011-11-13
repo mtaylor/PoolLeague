@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @session.id %>
+</p>
+
+<p>
+  <b>Player1:</b>
+  <%= @session.player1 %>
+</p>
+
+<p>
+  <b>Player2:</b>
+  <%= @session.player2 %>
+</p>
+
+<p>
+  <b>Player1 score:</b>
+  <%= @session.player1_score %>
+</p>
+
+<p>
+  <b>Player2 score:</b>
+  <%= @session.player2_score %>
+</p>
+
+<p>
+  <b>Draws:</b>
+  <%= @session.draws %>
+</p>
+
+
+<%= link_to 'Edit', edit_pool_session_path(@session) %> |
+<%= link_to 'Back', pool_sessions_path %>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PoolLeague</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div id="container">
+    <div id="banner">
+      <div id="user_nav">
+        <% if user_signed_in? %>
+          Hello <%= current_user.firstname + " " + current_user.lastname %>. 
+          <%= link_to "Sign out", destroy_user_session_path %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
+      </div>
+    <div id="navigation">
+      <div id="nav-menu">
+        <ul id="list-nav">
+          <li><%= link_to "League Home", home_index_path %></li>
+          <li><%= link_to "Pub Rules", rules_path %></li>
+          <li><%= link_to "Elo Ratings", elo_rating_path %></li>
+          <% if current_user %>
+            <li><%= link_to "New Session", new_pool_session_path %></li>
+          <% end %>
+        </ul>
+      </div> 
+    </div>
+    </div>
+    <div id="content">
+      <%= yield %>
+    </div>>
+  </div>
+</body>
+</html>

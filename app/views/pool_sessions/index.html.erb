@@ -1,0 +1,33 @@
+<h1>Listing sessions</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Player1</th>
+    <th>Player2</th>
+    <th>Player1 score</th>
+    <th>Player2 score</th>
+    <th>Draws</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sessions.each do |session| %>
+  <tr>
+    <td><%= session.id %></td>
+    <td><%= session.player1 %></td>
+    <td><%= session.player2 %></td>
+    <td><%= session.player1_score %></td>
+    <td><%= session.player2_score %></td>
+    <td><%= session.draws %></td>
+    <td><%= link_to 'Show', session %></td>
+    <td><%= link_to 'Edit', edit_pool_session_path(session) %></td>
+    <td><%= link_to 'Destroy', session, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Session', new_pool_session_path %>

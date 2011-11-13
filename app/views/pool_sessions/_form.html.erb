@@ -1,0 +1,43 @@
+<%= form_for(@session) do |f| %>
+  <% if @session.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@session.errors.count, "error") %> prohibited this session from being saved:</h2>
+
+      <ul>
+      <% @session.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :player1 %><br />
+    <%= collection_select(:session, :player1, @users, :id, :pool_name)
+ %>
+  </div>
+
+  <div class="field">
+    <%= f.label :player1_score %><br />
+    <%= f.text_field :player1_score %>
+  </div>
+
+  <div class="field">
+    <%= f.label :player2 %><br />
+    <%= collection_select(:session, :player2, @users, :id, :pool_name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :player2_score %><br />
+    <%= f.text_field :player2_score %>
+  </div>
+
+  <div class="field">
+    <%= f.label :draws %><br />
+    <%= f.text_field :draws %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
