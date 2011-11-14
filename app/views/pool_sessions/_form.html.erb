@@ -1,10 +1,10 @@
-<%= form_for(@session) do |f| %>
-  <% if @session.errors.any? %>
+<%= form_for(@pool_session) do |f| %>
+  <% if @pool_session.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@session.errors.count, "error") %> prohibited this session from being saved:</h2>
+      <h2><%= pluralize(@pool_session.errors.count, "error") %> prohibited this session from being saved:</h2>
 
       <ul>
-      <% @session.errors.full_messages.each do |msg| %>
+      <% @pool_session.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -13,8 +13,7 @@
 
   <div class="field">
     <%= f.label :player1 %><br />
-    <%= collection_select(:session, :player1, @users, :id, :pool_name)
- %>
+    <%= collection_select(:pool_session, :player1, @users, :id, :pool_name) %>
   </div>
 
   <div class="field">
@@ -24,7 +23,7 @@
 
   <div class="field">
     <%= f.label :player2 %><br />
-    <%= collection_select(:session, :player2, @users, :id, :pool_name) %>
+    <%= collection_select(:pool_session, :player2, @users, :id, :pool_name) %>
   </div>
 
   <div class="field">
