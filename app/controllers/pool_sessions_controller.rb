@@ -137,12 +137,19 @@ class PoolSessionsController < ApplicationController
     player1  = Elo::Player.new(:rating => @player1.rating)
     player2  = Elo::Player.new(:rating => @player2.rating)
 
-    @pool_session.player1_score.times do
-      player1.wins_from(player2)
-    end
+    p1score = @pool_session.player1_score
+    p2score = @pool_session.player2_score
 
-    @pool_session.player2_score.times do
-      player2.wins_from(player1)
+    while (p1score > 0 || p2score > 0)
+      if p1score > 0
+        player1.wins_from(player2)
+        p1score = p1score - 1
+      end
+
+      if p2score > 0
+        player2.wins_from(player1)
+        p2score = p2score - 1
+      end
     end
 
     @player1.rating = player1.rating
