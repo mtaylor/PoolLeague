@@ -109,7 +109,7 @@ class PoolSessionsController < ApplicationController
     @player1.save!
     @player2.save!
 
-    message = @player1.pool_name + " Just played " + @player2.pool_name + " and "
+    message = @player1.full_name + " Just played " + @player2.full_name + " and "
     if @pool_session.player1_score > @pool_session.player2_score
       message = message + " won: "
     elsif @pool_session.player1_score < @pool_session.player2_score
