@@ -125,7 +125,7 @@ class PoolSessionsController < ApplicationController
 
   def update_elo_ratings
     player1  = Elo::Player.new(:rating => @player1.rating)
-    player2  = Elo::Player.new(:rating => @player1.rating)
+    player2  = Elo::Player.new(:rating => @player2.rating)
 
     @pool_session.player1_score.times do
       player1.wins_from(player2)
