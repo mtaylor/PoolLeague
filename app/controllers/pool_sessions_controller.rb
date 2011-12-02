@@ -107,7 +107,7 @@ class PoolSessionsController < ApplicationController
     @player1.save!
     @player2.save!
 
-    message = @player1.full_name_elo + " Just played " + @player2.full_name_elo + " and "
+    message = @player1.full_name + " Just played " + @player2.full_name + " and "
     if @pool_session.player1_score > @pool_session.player2_score
       message = message + " won: "
     elsif @pool_session.player1_score < @pool_session.player2_score
@@ -118,7 +118,19 @@ class PoolSessionsController < ApplicationController
     message = message + " " + @pool_session.player1_score.to_s + " : " + @pool_session.player2_score.to_s
     notification = Notification.new({:message => message})
     notification.save!
+
+    p1m = @player1.full_name + "'s rating: " + @player1.rating.to_s + " => "
+    p2m = @player2.full_name + "'s rating: " + @player2.rating.to_s + " => "
+ 
     update_elo_ratings
+
+    p1m = p1m + @player1.rating.to_s
+    p2m = p2m + @player2.rating.to_s
+
+    p1n = Notification.new({:message => p1m})
+    p2n = Notification.new({:message => p2m})
+    p1n.save!
+    p2n.save!
   end
 
   def update_elo_ratings
