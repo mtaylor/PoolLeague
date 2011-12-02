@@ -144,7 +144,7 @@ a:active
 #entry_position
 {
   padding: 5px;
-  font-size: 25px;
+  font-size: 22px;
   width: 30px;
   height: 40px;
   float: left;
@@ -152,9 +152,9 @@ a:active
 }
 
 #entry_name
-{
+{`
   padding: 5px;
-  font-size: 25px;
+  font-size: 22px;
   width: 358px;
   height: 40px;
   margin-right: 1px;
@@ -165,7 +165,7 @@ a:active
 #entry_rating
 {
   padding: 5px;
-  font-size: 25px;
+  font-size: 22px;
   height: 30px;
   width: 80px;
   float: left;
