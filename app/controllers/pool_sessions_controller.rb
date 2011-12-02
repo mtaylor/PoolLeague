@@ -117,7 +117,7 @@ class PoolSessionsController < ApplicationController
     else
       message = message + " drew: "
     end
-    message = message + " " + @pool_session.player1_score.to_s + " : " + @pool_session.player2_score.to_s
+    message = message + " " + @pool_session.player1_score.to_s + "(" + @player1.rating + ")" + " : " + @pool_session.player2_score.to_s + "(" + @player2.rating + ")"
     notification = Notification.new({:message => message})
     notification.save!
     update_elo_ratings
