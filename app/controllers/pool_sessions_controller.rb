@@ -93,18 +93,16 @@ class PoolSessionsController < ApplicationController
 
   private
   def update_player_scores
-    games = @pool_session.player1_score + @pool_session.player2_score + @pool_session.draws
+    games = @pool_session.player1_score + @pool_session.player2_score
     @player1 = User.find(@pool_session.player1)
     @player1.played = @player1.played + games
     @player1.won = @player1.won + @pool_session.player1_score
     @player1.lost = @player1.lost + @pool_session.player2_score
-    @player1.draw = @player1.draw + @pool_session.draws
     
     @player2 = User.find(@pool_session.player2)
     @player2.played = @player2.played + games
     @player2.won = @player2.won + @pool_session.player2_score
     @player2.lost = @player2.lost + @pool_session.player1_score
-    @player2.draw = @player2.draw + @pool_session.draws
 
     @player1.save!
     @player2.save!
@@ -135,9 +133,6 @@ class PoolSessionsController < ApplicationController
       player2.wins_from(player1)
     end
 
-    @pool_session.draws.times do
-      player2.plays_draw(player1)
-    end
     @player1.rating = player1.rating
     @player2.rating = player2.rating
     @player1.save!
