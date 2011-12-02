@@ -24,4 +24,8 @@ class User < ActiveRecord::Base
     n = Notification.new(:message => full_name + " has just signed up to RedHat Pool.");
     n.save! 
   end
+
+  def full_name_elo
+    full_name + "(" + rating.to_s + ")"
+  end
 end
