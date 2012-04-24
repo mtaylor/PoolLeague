@@ -9,8 +9,10 @@
     <div id="br"></div>
 	<% count = 1 %>
 	<% @users.each do |user| %>
-	    <%= render :partial => "entry", :locals => {:position => count, :name => user.pool_name, :rating => user.rating } %>
-	  <% count += 1 %>
+            <% if user.rating >= 0 then %>
+	        <%= render :partial => "entry", :locals => {:position => count, :name => user.pool_name, :rating => user.rating } %>
+	        <% count += 1 %>
+            <% end %>
 	<% end %>
   </div>
   <div id="notifications">
