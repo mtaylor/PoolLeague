@@ -25,7 +25,8 @@ class PoolSessionsController < ApplicationController
   # GET /sessions/new.xml
   def new
     @pool_session = PoolSession.new
-    @users = User.all
+    @users = User.all.select { |u| u.rating >= 0 }
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @pool_session }
