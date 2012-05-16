@@ -16,6 +16,7 @@ PoolLeague::Application.routes.draw do
   root :to => "home#index"
   match "/rules" => "home#rules"
   match "/elo_rating" => "home#elo"
+  match "/login" => "home#login"
 
   namespace :pool do
    # resources :session

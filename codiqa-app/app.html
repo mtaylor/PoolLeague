@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+        <link rel="stylesheet" href="my.css" />
+        <style>
+            /* App custom styles */
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+        </script>
+        <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js">
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="league_page">
+            <div data-theme="a" data-role="header">
+                <h2>
+                    Pool League
+                </h2>
+                <div data-role="navbar" data-iconpos="left">
+                    <ul>
+                        <li>
+                            <a href="#league_page" data-theme="b" data-icon="star" class="ui-btn-active">
+                                League
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#sessions_page" data-theme="b" data-icon="plus">
+                                Session
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Standings
+                    </li>
+                    @
+                    <li data-theme="c">
+                        <a href="#league_page" data-transition="slide">
+                            1. mtaylor
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="page" id="sessions_page">
+            <div data-theme="a" data-role="header">
+                <h2>
+                    Pool League
+                </h2>
+                <div data-role="navbar" data-iconpos="left">
+                    <ul>
+                        <li>
+                            <a href="#league_page" data-theme="b" data-icon="star">
+                                League
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#sessions_page" data-theme="b" data-icon="plus" class="ui-btn-active">
+                                Session
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <form action="" method="POST">
+                    &lt;form&gt;
+                </form>
+                <div data-role="fieldcontain">
+                    <label for="selectmenu1">
+                        Player 1
+                    </label>
+                    <select name="selectmenu1" id="selectmenu1">
+                        <option value="option1">
+                            Option 1
+                        </option>
+                    </select>
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="selectmenu2">
+                        Player 1 Score
+                    </label>
+                    <select name="selectmenu2" id="selectmenu2">
+                        <option value="0">
+                            0
+                        </option>
+                    </select>
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="selectmenu3">
+                        Player 2
+                    </label>
+                    <select name="selectmenu3" id="selectmenu3">
+                        <option value="option1">
+                            Option 1
+                        </option>
+                    </select>
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="selectmenu4">
+                        Player 2 Score
+                    </label>
+                    <select name="selectmenu4" id="selectmenu4">
+                        <option value="option1">
+                            Option 1
+                        </option>
+                    </select>
+                </div>
+                <input value="Submit" type="submit" />
+            </div>
+        </div>
+        <script>
+            //App custom javascript
+        </script>
+    </body>
+</html>

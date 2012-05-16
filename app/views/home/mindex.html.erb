@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+        </title>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+        <link rel="stylesheet" href="my.css" />
+        <style>
+            /* App custom styles */
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+        </script>
+        <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js">
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="league_page">
+            <div data-theme="a" data-role="header">
+                <h2>
+                    Pool League
+                </h2>
+                <div data-role="navbar" data-iconpos="left">
+                    <ul>
+                        <li>
+                            <a href="#league_page" data-theme="b" data-icon="star" class="ui-btn-active">
+                                League
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#sessions_page" data-theme="b" data-icon="plus">
+                                Session
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#notifications_page" data-theme="b" data-icon="plus">
+                                Notifications
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Standings
+                    </li>
+                    <% @count = 1 %>
+					<% @users.each do |user| %>
+            			<% if user.rating >= 0 then %>
+            				<li data-theme="c">
+                        		<a href="#league_page" data-transition="slide">
+                            		<%= @count.to_s + user.rating.to_s + user.pool_name %>
+                        		</a>
+                    		</li>
+                    	<% @count = @count + 1 %>
+            			<% end %>
+					<% end %>
+                </ul>
+            </div>
+        </div>
+        <div data-role="page" id="notifications_page">
+            <div data-theme="a" data-role="header">
+                <h2>
+                    Pool League
+                </h2>
+                <div data-role="navbar" data-iconpos="left">
+                    <ul>
+                        <li>
+                            <a href="#league_page" data-theme="b" data-icon="star">
+                                League
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#sessions_page" data-theme="b" data-icon="plus">
+                                Session
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#notifications_page" data-theme="b" data-icon="plus" class="ui-btn-active">
+                                Notifications
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+                <ul data-role="listview" data-divider-theme="b" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Standings
+                    </li>
+					<% @notifications.each do |notification| %>
+        				<li data-theme="c">
+                    		<a href="#notifications_page" data-transition="slide">
+                        		<%= notification.message %>
+                    		</a>
+                		</li>
+					<% end %>
+                </ul>
+            </div>
+        </div>
+        <div data-role="page" id="sessions_page">
+            <div data-theme="a" data-role="header">
+                <h2>
+                    Pool League
+                </h2>
+                <div data-role="navbar" data-iconpos="left">
+                    <ul>
+                        <li>
+                            <a href="#league_page" data-theme="b" data-icon="star">
+                                League
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#sessions_page" data-theme="b" data-icon="plus" class="ui-btn-active">
+                                Session
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#notifications_page" data-theme="b" data-icon="plus">
+                                Notifications
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="content">
+				<%= form_for(@pool_session) do |f| %>
+	                <div data-role="fieldcontain">
+	                    <%= f.label :player1 %><br />
+	                    <%= collection_select(:pool_session, :player1, @users, :id, :pool_name) %>
+	                </div>
+	                <div data-role="fieldcontain">
+					    <%= f.label :player1_score %><br />
+					    <%= f.text_field :player1_score %>
+	                </div>
+	                <div data-role="fieldcontain">
+					    <%= f.label :player2 %><br />
+					    <%= collection_select(:pool_session, :player2, @users, :id, :pool_name) %>
+	                </div>
+	                <div data-role="fieldcontain">
+    					<%= f.label :player2_score %><br />
+    					<%= f.text_field :player2_score %>
+	                </div>
+	                <input value="Submit" type="submit" />
+            	</div>
+        	<% end %>
+        </div>
+        <script>
+            //App custom javascript
+        </script>
+    </body>
+</html>
