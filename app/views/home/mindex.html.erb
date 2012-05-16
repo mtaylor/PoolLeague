@@ -50,9 +50,13 @@
 					<% @users.each do |user| %>
             			<% if user.rating >= 0 then %>
             				<li data-theme="c">
-                        		<a href="#league_page" data-transition="slide">
-                            		<%= @count.to_s + user.rating.to_s + user.pool_name %>
-                        		</a>
+                        		<table style="width: 100%">
+                        			<tr>
+                        				<td><%= @count.to_s %></td>
+                        				<td><center><%= user.pool_name %></center></td>
+                        				<td><div style="float: right"><%= user.rating.to_s %></div></td></tr></table>
+                        			</tr>
+                        		</table>
                     		</li>
                     	<% @count = @count + 1 %>
             			<% end %>
@@ -92,9 +96,7 @@
                     </li>
 					<% @notifications.each do |notification| %>
         				<li data-theme="c">
-                    		<a href="#notifications_page" data-transition="slide">
-                        		<%= notification.message %>
-                    		</a>
+                        	<%= notification.message %>
                 		</li>
 					<% end %>
                 </ul>

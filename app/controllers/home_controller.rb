@@ -4,7 +4,7 @@ class HomeController < ApplicationController
     @notifications = Notification.all(:order => 'created_at DESC', :limit => 10)
     if !mobile_device?
       if !current_user
-        redirect :login
+        redirect_to  :action => "login"
       else
         @pool_session = PoolSession.new
         render :mindex, :layout => nil
@@ -16,7 +16,7 @@ class HomeController < ApplicationController
     if !mobile_device?
       render :mlogin, :layout => nil
     else
-      redirect :index
+      redirect_to :action => "index"
     end
   end
 
