@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'devise', "<1.5"
 gem 'elo'
 gem 'mysql2'
+gem 'prototype-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'

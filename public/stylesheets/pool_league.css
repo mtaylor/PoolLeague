@@ -6,7 +6,7 @@ body
 
 a
 {
-  color: red;
+  color: red ;
 }
 
 a:link 
@@ -16,7 +16,7 @@ a:link
 
 a:visited 
 {
-  color: blue;
+  color: red;
 }
 
 a:visited
@@ -91,7 +91,7 @@ a:active
   padding: 5px;
   width: 225px;
   float: left;
-  background-color: #FFCCCC;
+  background-color: #EEEEEE;
   margin-bottom: 5px;
   font-size: 15px;
 }
@@ -211,7 +211,7 @@ ul#list-nav li a:hover
 
 #bl 
 {
-  background: url("../images/bl.png");
+  background-image: url("../images/bc.png");
   width: 25px;
   height: 50px;
   float: left;
@@ -220,7 +220,7 @@ ul#list-nav li a:hover
 
 #br
 {
-  background: url("../images/br.png");
+  background-image: url("../images/bc.png");
   width: 25px;
   height: 50px;
   float: left;
@@ -229,7 +229,7 @@ ul#list-nav li a:hover
 
 #rl 
 {
-  background: url("../images/rl.png");
+  background-image: url("../images/rc.png");
   width: 25px;
   height: 50px;
   float: left;
@@ -238,7 +238,7 @@ ul#list-nav li a:hover
 
 #rr
 {
-  background: url("../images/rr.png");
+  background-image: url("../images/rc.png"); 
   width: 25px;
   height: 50px;
   float: left;
@@ -247,7 +247,7 @@ ul#list-nav li a:hover
 
 #brn
 {
-  background: url("../images/brn.png");
+  background-image: url("../images/bc.png");
   width: 25px;
   height: 50px;
   float: left;
@@ -256,9 +256,56 @@ ul#list-nav li a:hover
 
 #bln
 {
-  background: url("../images/bln.png");
+  background-image: url("../images/bc.png");
   width: 25px;
   height: 50px;
   float: left;
   margin-bottom: 5px;
+}
+
+label {
+    font-weight: bolder;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+form {
+  padding: 30px;
+  background-image: url("../images/bc.png");
+  color: white;
+  height: 1000px;
+}
+
+input {
+    margin-bottom: 30px;
+    font-size: 12px;
+}
+
+input[type=submit] {
+    float: right;
+}
+
+.left {
+    float: left;
+    width: 50%;
+}
+
+.right {
+    float: left;
+    width 50%
+}
+
+div.note {
+    font-size: 10px;
+    width: 90%;
+}
+
+div.centre {
+    width: 50%;
+    margin: auto;
+}
+
+select {
+  font-size: 18px;
+  background-color: white;
 }

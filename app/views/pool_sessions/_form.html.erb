@@ -1,4 +1,8 @@
 <%= form_for(@pool_session) do |f| %>
+
+  <div class=centre>
+  <h2>Enter Scores</h2></br>
+
   <% if @pool_session.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pool_session.errors.count, "error") %> prohibited this session from being saved:</h2>
@@ -12,26 +16,29 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :player1 %><br />
+    <label>Player 1:<label></br>
     <%= collection_select(:pool_session, :player1, @users, :id, :pool_name) %>
   </div>
 
   <div class="field">
-    <%= f.label :player1_score %><br />
+    <label>Games Won</label><br>
     <%= f.text_field :player1_score %>
   </div>
 
+  <h2>Vs</h2>
+
   <div class="field">
-    <%= f.label :player2 %><br />
+    <label>Player 2:<label></br>
     <%= collection_select(:pool_session, :player2, @users, :id, :pool_name) %>
   </div>
 
   <div class="field">
-    <%= f.label :player2_score %><br />
+    <label>Games Won</label><br>
     <%= f.text_field :player2_score %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit Score"%>
+  </div>
   </div>
 <% end %>

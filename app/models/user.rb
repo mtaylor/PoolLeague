@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def create_notification
-    n = Notification.new(:message => full_name + " has just signed up to RedHat Pool.");
+    n = Notification.new(:message => full_name + " has just signed up to PVE Sports.");
     n.save! 
   end
 

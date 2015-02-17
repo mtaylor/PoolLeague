@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(:version => 20111112105923) do
 
   create_table "notifications", :force => true do |t|
     t.string   "message"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "pool_sessions", :force => true do |t|
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(:version => 20111112105923) do
     t.integer  "player1_score", :default => 0
     t.integer  "player2_score", :default => 0
     t.integer  "draws",         :default => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(:version => 20111112105923) do
     t.string   "firstname",                                               :null => false
     t.string   "lastname",                                                :null => false
     t.integer  "rating",                                :default => 1000
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                              :null => false
+    t.datetime "updated_at",                                              :null => false
     t.integer  "played",                                :default => 0
     t.integer  "won",                                   :default => 0
     t.integer  "lost",                                  :default => 0
